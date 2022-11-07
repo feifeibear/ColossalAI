@@ -17,6 +17,7 @@ try:
 except ImportError:
     print('please install triton from https://github.com/openai/triton')
     HAS_TRITON = False
+
 try:
     from flash_attn.flash_attn_interface import flash_attn_unpadded_func
     HAS_FLASH_ATTN = True
@@ -40,7 +41,7 @@ def triton_check():
 
 TRITON_AVALIABLE = triton_check()
 
-if TRITON_AVALIABLE:
+if HAS_TRITON and TRITON_AVALIABLE:
 
     @triton.jit
     def _fwd_kernel(

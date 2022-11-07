@@ -7,7 +7,7 @@ from colossalai.kernel.cuda_native.flash_attention import HAS_FLASH_ATTN, HAS_TR
 if HAS_FLASH_ATTN:
     from colossalai.kernel.cuda_native.flash_attention import flash_attention
 
-if HAS_TRITON:
+if HAS_TRITON and TRITON_AVALIABLE:
     from colossalai.kernel.cuda_native.flash_attention import triton_flash_attention
 
 
